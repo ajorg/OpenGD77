@@ -1347,6 +1347,49 @@ void printFrequency(bool isTX, bool hasFocus, uint8_t y, uint32_t frequency, boo
 	ucPrintAt(128 - (3 * 8), y, "MHz", FONT_8x16);
 }
 
+int snprintRxFreqAndOffset(char *s, size_t n, int rxFreq, int txFreq)
+{
+	int rxMHz, rxDec, width, len;
+	int off, offMHz, offDec;
+	char sign = '+';
+
+	// Split MHz and decimal parts
+	rxMHz = rxFreq / 100000;
+	rxDec = rxFreq - (rxMHz * 100000);
+
+	// Trim trailing zeros
+	// width of the decimal part
+	width = 5;
+	while (rxDec > 0 && rxDec % 10 == 0)
+	{
+		rxDec = rxDec / 10;
+		// Each time we remove a 0 off the end, decrement width
+		width--;
+	}
+	// If no decimal part, just print .0
+	if (rxDec == 0) width = 1;
+	len = snprintf(s, n, "%d.%0*d", rxMHz, width, rxDec);
+
+	// Add the offset, if there is one
+	// This should be correct in cross-band operation, but not as useful
+	if (txFreq != rxFreq)
+	{
+		off = txFreq - rxFreq;
+		offMHz = off / 100000;
+		offDec = abs(off - (offMHz * 100000));
+		width = 5;
+		while (offDec > 0 && offDec % 10 == 0)
+		{
+			width--;
+			offDec = offDec / 10;
+		}
+		if (offDec == 0) width = 1;
+		if (off < 0) sign = '-';
+		len += snprintf(s+len, n-len, " %c%d.%0*d", sign, abs(offMHz), width, offDec);
+	}
+	return len;
+}
+
 void reset_freq_enter_digits(void)
 {
 	for (int i=0;i<12;i++)
