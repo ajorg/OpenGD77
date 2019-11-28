@@ -408,6 +408,10 @@ void menuChannelModeUpdateScreen(int txTimeSecs)
 				}
 				else
 				{
+					// Print RX Frequency and Offset at bottom left
+					snprintRxFreqAndOffset(buffer, bufferLen, channelScreenChannelData.rxFreq, channelScreenChannelData.txFreq);
+					ucPrintAt(6, 57, buffer, FONT_6x8);
+
 					if (currentZone.NOT_IN_MEMORY_isAllChannelsZone)
 					{
 						channelNumber=nonVolatileSettings.currentChannelIndexInAllZone;
