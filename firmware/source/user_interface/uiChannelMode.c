@@ -420,7 +420,7 @@ void menuChannelModeUpdateScreen(int txTimeSecs)
 							snprintf(nameBuf, nameBufferLen, "%s Ch:%d",currentLanguage->all_channels, channelNumber);
 						}
 						nameBuf[nameBufferLen - 1] = 0;
-						ucPrintCentered(50 , nameBuf, FONT_6x8);
+						ucPrintCentered(48, nameBuf, FONT_6x8);
 					}
 					else
 					{
@@ -435,7 +435,7 @@ void menuChannelModeUpdateScreen(int txTimeSecs)
 							snprintf(nameBuf, nameBufferLen, "%s Ch:%d", currentZoneName,channelNumber);
 							nameBuf[nameBufferLen - 1] = 0;
 						}
-						ucPrintCentered(50, (char *)nameBuf, FONT_6x8);
+						ucPrintCentered(48, (char *)nameBuf, FONT_6x8);
 					}
 				}
 			}
