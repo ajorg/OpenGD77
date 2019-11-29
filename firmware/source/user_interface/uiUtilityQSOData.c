@@ -584,11 +584,10 @@ void menuUtilityRenderHeader(void)
 			break;
 	}
 
-	/* NO ROOM TO DISPLAY THIS
 	if (keypadLocked)
 	{
-		strcat(buffer," L");
-	}*/
+		UC1701_printAt(83, Y_OFFSET, "L", UC1701_FONT_6x8);
+	}
 
 	UC1701_printCentered(Y_OFFSET,(char *)POWER_LEVELS[nonVolatileSettings.txPowerLevel],UC1701_FONT_6x8);
 
