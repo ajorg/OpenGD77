@@ -62,9 +62,9 @@ const unsigned int TRX_CTCSSTones[]={65535,625,670,693,719,744,770,797,825,854,
 										2065,2107,2181,2257,2291,2336,2418,2503,2541};
 static const int BAND_VHF_MIN 	= 14400000;
 static const int BAND_VHF_MAX 	= 14800000;
-static const int BAND_222_MIN 	= 22200000;
+static const int BAND_222_MIN 	= 21900000;
 static const int BAND_222_MAX 	= 22500000;
-static const int BAND_UHF_MIN 	= 42000000;
+static const int BAND_UHF_MIN 	= 43000000;
 static const int BAND_UHF_MAX 	= 45000000;
 
 enum CAL_DEV_TONE_INDEXES { CAL_DEV_DTMF = 0, CAL_DEV_TONE = 1, CAL_DEV_CTCSS_WIDE	= 2,CAL_DEV_CTCSS_NARROW = 3,CAL_DEV_DCS_WIDE = 4, CAL_DEV_DCS_NARROW	= 5};
