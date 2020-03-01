@@ -167,10 +167,10 @@ void settingsRestoreDefaultSettings(void)
 	nonVolatileSettings.hotspotType = HOTSPOT_TYPE_OFF;
 	nonVolatileSettings.transmitTalkerAlias	= false;
     nonVolatileSettings.privateCalls = true;
-	nonVolatileSettings.vfoAScanLow=14400000;						//Low frequency limit for VFO A Scanning
-	nonVolatileSettings.vfoAScanHigh=14600000;						//High Frequency limit for VFO A Scanning
-	nonVolatileSettings.vfoBScanLow=43000000;						//Low frequency limit for VFO B Scanning
-	nonVolatileSettings.vfoBScanHigh=44000000;						//High Frequency limit for VFO B Scanning
+	nonVolatileSettings.vfoAScanLow = BAND_VHF_MIN;  // Low frequency limit for VFO A Scanning
+	nonVolatileSettings.vfoAScanHigh = BAND_VHF_MAX; // High Frequency limit for VFO A Scanning
+	nonVolatileSettings.vfoBScanLow = BAND_UHF_MIN;  // Low frequency limit for VFO B Scanning
+	nonVolatileSettings.vfoBScanHigh = BAND_UHF_MAX; // High Frequency limit for VFO B Scanning
 	nonVolatileSettings.contactDisplayPriority = CONTACT_DISPLAY_PRIO_CC_DB_TA;
 	nonVolatileSettings.splitContact = SPLIT_CONTACT_SINGLE_LINE_ONLY;
 

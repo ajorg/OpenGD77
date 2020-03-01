@@ -36,10 +36,12 @@ typedef struct trxFrequency
 	int txFreq;
 } trxFrequency_t;
 
-extern const int RADIO_VHF_MIN;
-extern const int RADIO_VHF_MAX;
-extern const int RADIO_UHF_MIN;
-extern const int RADIO_UHF_MAX;
+extern const int BAND_VHF_MIN;
+extern const int BAND_VHF_MAX;
+extern const int BAND_222_MIN;
+extern const int BAND_222_MAX;
+extern const int BAND_UHF_MIN;
+extern const int BAND_UHF_MAX;
 
 enum RADIO_MODE { RADIO_MODE_NONE,RADIO_MODE_ANALOG,RADIO_MODE_DIGITAL};
 enum DMR_ADMIT_CRITERIA { ADMIT_CRITERIA_ALWAYS,ADMIT_CRITERIA_CHANNEL_FREE,ADMIT_CRITERIA_COLOR_CODE};
