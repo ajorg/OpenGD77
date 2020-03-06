@@ -1166,6 +1166,26 @@ static void handleQuickMenuEvent(uiEvent_t *ev)
 				break;
 		}
 	}
+	else if (KEYCHECK_LONGDOWN(ev->keys, KEY_LEFT))
+	{
+		switch(gMenusCurrentItemIndex)
+		{
+			case CH_SCREEN_QUICK_MENU_FILTER:
+				if (trxGetMode() == RADIO_MODE_DIGITAL)
+				{
+					// Require long-press to change the DMR Filter to None
+					//
+					//  This feature is not intended for normal operation. Its only intended
+					//  as a way to listen to stations using an unknown CC.
+					if (tmpQuickMenuDmrFilterLevel == DMR_FILTER_NONE + 1)
+					{
+						tmpQuickMenuDmrFilterLevel--;
+					}
+				}
+				break;
+		}
+
+	}
 	else if (KEYCHECK_PRESS(ev->keys, KEY_LEFT))
 	{
 		switch(gMenusCurrentItemIndex)
@@ -1173,7 +1193,9 @@ static void handleQuickMenuEvent(uiEvent_t *ev)
 			case CH_SCREEN_QUICK_MENU_FILTER:
 				if (trxGetMode() == RADIO_MODE_DIGITAL)
 				{
-					if (tmpQuickMenuDmrFilterLevel > DMR_FILTER_NONE)
+					// Note that long-press is required to change DMR filter to None
+					// See KEYCHECK_LONGDOWN section above.
+					if (tmpQuickMenuDmrFilterLevel > DMR_FILTER_NONE + 1)
 					{
 						tmpQuickMenuDmrFilterLevel--;
 					}
