@@ -190,7 +190,7 @@ OBJ := $(addprefix $(BUILD_DIR)/,  $(addsuffix .o, $(basename $(ALL_SRC))))
 OZERO_OBJECTS := $(addprefix $(BUILD_DIR)/,  $(addsuffix .o, $(basename $(OZERO_SOURCES))))
 
 CFLAGS   := $(ALL_INC) -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb $(CONFIGS) \
-            $(DEFINES) $(EXCEPT) -c
+            $(DEFINES) $(EXCEPT) -c -Werror
 
 AFLAGS   := -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb
 LFLAGS   := -nostdlib -Xlinker -Map="firmware.map" -Xlinker --gc-sections -Xlinker \
