@@ -100,7 +100,7 @@ static const int freqs[64] = {0,104,110,117,123,131,139,147,156,165,175,185,196,
 
 volatile int *melody_play = NULL;
 volatile int melody_idx = 0;
-int soundBeepVolumeDivider;
+uint8_t soundBeepVolumeDivider;
 static uint8_t audioAmpStatusMask = 0;
 
 uint8_t getAudioAmpStatus(void)

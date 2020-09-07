@@ -132,7 +132,7 @@ void menuLastHeardUpdateScreen(bool showTitleOrHeader, bool displayDetails, bool
 			{
 				char buffer[17];
 
-				snprintf(buffer, 17, "ID:%d", item->id);
+				snprintf(buffer, 17, "ID:%ld", item->id);
 				buffer[16] = 0;
 				menuLastHeardDisplayTA(16 + (numDisplayed * MENU_ENTRY_HEIGHT), buffer, item->time, now, item->talkGroupOrPcId, 17, displayDetails,invertColour, isFirstRun);
 			}
@@ -237,9 +237,9 @@ static void menuLastHeardDisplayTA(uint8_t y, char *text, uint32_t time, uint32_
 
 	// Do TG and Time stuff first as its always needed for the Voice prompts
 
-	snprintf(tg_Buffer, 17,"%s %u", (isPC ? "PC" : "TG"), tg);// PC or TG
+	snprintf(tg_Buffer, 17,"%s %lu", (isPC ? "PC" : "TG"), tg);// PC or TG
 	tg_Buffer[16] = 0;
-	snprintf(timeBuffer, 5, "%d", (((now - time) / 1000U) / 60U));// Time
+	snprintf(timeBuffer, 5, "%ld", (((now - time) / 1000U) / 60U));// Time
 	timeBuffer[5] = 0;
 
 	if (itemIsSelected && (nonVolatileSettings.audioPromptMode >= AUDIO_PROMPT_MODE_VOICE_LEVEL_1))
@@ -345,7 +345,7 @@ static void menuLastHeardDisplayTA(uint8_t y, char *text, uint32_t time, uint32_
 			voicePromptsAppendString(chomp(buffer));
 			voicePromptsAppendString("  ");
 
-			snprintf(buffer,37,"%d ",tg);
+			snprintf(buffer, 37, "%ld ", tg);
 			if (isPC)
 			{
 				voicePromptsAppendLanguageString(&currentLanguage->private_call);

@@ -219,7 +219,7 @@ enum QUICK_FUNCTIONS {  QUICK_FUNCTIONS_MENU_PLACEHOLDER = 20,   // All values l
 // This is used to store current position in menus. The system keeps track of its value, e.g entering in
 // a submenu, it will be restored exiting that submenu. It's up to the menuFunction() to override its
 // value when isFirstRun == true.
-extern int gMenusCurrentItemIndex;
+extern int32_t gMenusCurrentItemIndex;
 
 extern int gMenusStartIndex;
 extern int gMenusEndIndex;

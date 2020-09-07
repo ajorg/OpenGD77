@@ -51,7 +51,7 @@ static int16_t newChannelIndex = 0;
 
 bool scanToneActive = false;//tone scan active flag  (CTCSS/DCS)
 static const int SCAN_TONE_INTERVAL = 200;//time between each tone for lowest tone. (higher tones take less time.)
-static int scanToneIndex = 0;
+static int32_t scanToneIndex = 0;
 static CSSTypes_t scanToneType = CSS_CTCSS;
 static uint16_t prevCSSTone = (CODEPLUG_CSS_NONE - 1);
 static uint16_t toneScanCSS = TONE_SCAN_ALL;
@@ -444,12 +444,12 @@ void uiVFOModeUpdateScreen(int txTimeSecs)
 				else
 				{
 					// Low/High scanning freqs
-					snprintf(buffer, bufferLen, "%d.%03d", nonVolatileSettings.vfoScanLow[nonVolatileSettings.currentVFONumber] / 100000, (nonVolatileSettings.vfoScanLow[nonVolatileSettings.currentVFONumber] - (nonVolatileSettings.vfoScanLow[nonVolatileSettings.currentVFONumber] / 100000) * 100000)/100);
+					snprintf(buffer, bufferLen, "%ld.%03ld", nonVolatileSettings.vfoScanLow[nonVolatileSettings.currentVFONumber] / 100000, (nonVolatileSettings.vfoScanLow[nonVolatileSettings.currentVFONumber] - (nonVolatileSettings.vfoScanLow[nonVolatileSettings.currentVFONumber] / 100000) * 100000)/100);
 					buffer[bufferLen - 1] = 0;
 
 					ucPrintAt(2, TX_FREQ_Y_POS, buffer, FONT_SIZE_3);
 
-					snprintf(buffer, bufferLen, "%d.%03d", nonVolatileSettings.vfoScanHigh[nonVolatileSettings.currentVFONumber] / 100000, (nonVolatileSettings.vfoScanHigh[nonVolatileSettings.currentVFONumber] - (nonVolatileSettings.vfoScanHigh[nonVolatileSettings.currentVFONumber] / 100000) * 100000)/100);
+					snprintf(buffer, bufferLen, "%ld.%03ld", nonVolatileSettings.vfoScanHigh[nonVolatileSettings.currentVFONumber] / 100000, (nonVolatileSettings.vfoScanHigh[nonVolatileSettings.currentVFONumber] - (nonVolatileSettings.vfoScanHigh[nonVolatileSettings.currentVFONumber] / 100000) * 100000)/100);
 					buffer[bufferLen - 1] = 0;
 					ucPrintAt(DISPLAY_SIZE_X - ((7 * 8) + 2), TX_FREQ_Y_POS, buffer, FONT_SIZE_3);
 					// Scanning direction arrow

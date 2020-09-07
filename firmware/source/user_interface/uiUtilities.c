@@ -522,7 +522,7 @@ static void updateLHItem(LinkItem_t *item)
 		}
 		else
 		{
-			snprintf(item->talkgroup, 16, "%s %d", currentLanguage->tg, (item->talkGroupOrPcId & 0x00FFFFFF));
+			snprintf(item->talkgroup, 16, "%s %ld", currentLanguage->tg, (item->talkGroupOrPcId & 0x00FFFFFF));
 			item->talkgroup[16] = 0;
 		}
 
@@ -1821,7 +1821,7 @@ void buildTgOrPCDisplayName(char *nameBuf, int bufferLen)
 		contactIndex = codeplugContactIndexByTGorPC(id, CONTACT_CALLTYPE_TG, &contact);
 		if (contactIndex == 0)
 		{
-			snprintf(nameBuf, bufferLen, "TG %d", (trxTalkGroupOrPcId & 0x00FFFFFF));
+			snprintf(nameBuf, bufferLen, "TG %ld", (trxTalkGroupOrPcId & 0x00FFFFFF));
 		}
 		else
 		{
@@ -1848,7 +1848,7 @@ void buildTgOrPCDisplayName(char *nameBuf, int bufferLen)
 				}
 				else
 				{
-					snprintf(nameBuf, bufferLen, "ID:%d", id);
+					snprintf(nameBuf, bufferLen, "ID:%ld", id);
 				}
 			}
 		}

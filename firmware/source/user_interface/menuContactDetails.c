@@ -317,14 +317,14 @@ static void handleEvent(uiEvent_t *ev)
 												}
 												else
 												{
-													snprintf(buf, bufferLen, "%s %d", currentLanguage->pc, tmpContact.tgNumber);
+													snprintf(buf, bufferLen, "%s %ld", currentLanguage->pc, tmpContact.tgNumber);
 													buf[bufferLen - 1] = 0;
 													codeplugUtilConvertStringToBuf(buf, tmpContact.name, 16);
 												}
 											}
 											else
 											{
-												snprintf(buf, bufferLen, "%s %d", currentLanguage->tg, tmpContact.tgNumber);
+												snprintf(buf, bufferLen, "%s %ld", currentLanguage->tg, tmpContact.tgNumber);
 												buf[bufferLen - 1] = 0;
 												codeplugUtilConvertStringToBuf(buf, tmpContact.name, 16);
 											}

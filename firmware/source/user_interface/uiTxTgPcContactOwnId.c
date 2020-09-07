@@ -316,7 +316,7 @@ static void handleEvent(uiEvent_t *ev)
 
 				if ((BUTTONCHECK_DOWN(ev, BUTTON_SK2) != 0) && (gMenusCurrentItemIndex == ENTRY_SELECT_CONTACT))
 				{
-					snprintf(digits, 8, "%d", trxDMRID);
+					snprintf(digits, 8, "%ld", trxDMRID);
 					digits[8] = 0;
 					gMenusCurrentItemIndex = ENTRY_USER_DMR_ID;
 				}

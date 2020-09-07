@@ -23,7 +23,7 @@
 int menuDisplayLightTimer = -1;
 
 menuItemNewData_t *gMenuCurrentMenuList;
-int gMenusCurrentItemIndex; // each menu can re-use this var to hold the position in their display list. To save wasted memory if they each had their own variable
+int32_t gMenusCurrentItemIndex; // each menu can re-use this var to hold the position in their display list. To save wasted memory if they each had their own variable
 int gMenusStartIndex;// as above
 int gMenusEndIndex;// as above
 

@@ -593,11 +593,11 @@ static void updateScreen(uint8_t rxCommandState)
 		{
 			if ((trxTalkGroupOrPcId & 0xFF000000) == 0)
 			{
-				snprintf(buffer, bufferLen, "TG %d", trxTalkGroupOrPcId & 0x00FFFFFF);
+				snprintf(buffer, bufferLen, "TG %ld", trxTalkGroupOrPcId & 0x00FFFFFF);
 			}
 			else
 			{
-				snprintf(buffer, bufferLen, "PC %d", trxTalkGroupOrPcId & 0x00FFFFFF);
+				snprintf(buffer, bufferLen, "PC %ld", trxTalkGroupOrPcId & 0x00FFFFFF);
 			}
 			buffer[bufferLen - 1] = 0;
 		}
@@ -628,7 +628,7 @@ static void updateScreen(uint8_t rxCommandState)
 				}
 				else
 				{
-					snprintf(buffer, bufferLen, "ID: %d", rxedDMR_LC.srcId);
+					snprintf(buffer, bufferLen, "ID: %ld", rxedDMR_LC.srcId);
 				}
 			}
 
@@ -636,11 +636,11 @@ static void updateScreen(uint8_t rxCommandState)
 
 			if (rxedDMR_LC.FLCO == 0)
 			{
-				snprintf(buffer, bufferLen, "TG %d", rxedDMR_LC.dstId);
+				snprintf(buffer, bufferLen, "TG %ld", rxedDMR_LC.dstId);
 			}
 			else
 			{
-				snprintf(buffer, bufferLen, "PC %d", rxedDMR_LC.dstId);
+				snprintf(buffer, bufferLen, "PC %ld", rxedDMR_LC.dstId);
 			}
 			buffer[bufferLen - 1] = 0;
 
@@ -2068,7 +2068,7 @@ static uint8_t setQSOInfo(volatile const uint8_t *data, uint8_t length)
 
 			for (uint8_t i = 0; i < len; i++)
 			{
-				if (isalpha(QSOInfo[i]))
+				if (isalpha((unsigned char)QSOInfo[i]))
 				{
 					onlyDigits = false;
 					break;

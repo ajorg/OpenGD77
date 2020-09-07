@@ -41,7 +41,7 @@ extern const int MELODY_LOW_BATTERY[];
 extern volatile int *melody_play;
 extern volatile int melody_idx;
 extern volatile int micAudioSamplesTotal;
-extern int soundBeepVolumeDivider;
+extern uint8_t soundBeepVolumeDivider;
 
 #define WAV_BUFFER_SIZE 0xa0
 #define WAV_BUFFER_COUNT 18
